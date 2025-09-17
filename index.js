@@ -565,7 +565,7 @@ app.get('/table', (req, res) => {
 const bestSeller = [
   {
     id: "B101",
-    img: "https://ibb.co.com/VpNDj0rj",
+    img: "https://i.ibb.co.com/dw8FCqJN/bed1.jpg",
     name: "King Size Wooden Bed",
     resalePrice: 18000,
     originalPrice: 35000,
@@ -575,16 +575,16 @@ const bestSeller = [
     sellerName: "Mehedi Hasan",
     isActive: true
   },
-  {
-    id: "B101",
-    img: "https://ibb.co.com/mVXZrgwg",
-    name: "King Size Wooden Bed",
-    resalePrice: 18000,
-    originalPrice: 35000,
-    yearOfUse: 2,
+   {
+    id: "B102",
+    img: "https://i.ibb.co.com/GQypPL1g/bed3.jpg",
+    name: "Single Wooden Bed with Storage",
+    resalePrice: 8000,
+    originalPrice: 15000,
+    yearOfUse: 1,
     postedAt: new Date().toISOString(),
     description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
-    sellerName: "Mehedi Hasan",
+    sellerName: "Rakibul Islam",
     isActive: true
   },
   {
