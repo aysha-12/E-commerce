@@ -1,5 +1,4 @@
 const express = require('express')
-const { MongoClient, ServerApiVersion } = require('mongodb');
 const cors = require('cors')
 const app = express()
 const port = 3000
@@ -14,31 +13,6 @@ app.use(express.json())
 
 
 
-const uri = `mongodb+srv://${process.env.S3_BUCKET}:${process.env.SECRET_KEY}@cluster0.rckdhow.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-
-async function run() {
-  try {  
-    await client.connect();
- 
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-
-
-  } finally {
-   
-    // await client.close();
-  }
-}
-run().catch(console.dir);
 
 
 
@@ -50,8 +24,8 @@ app.get('/', (req, res) => {
 })
 
 
-const resaleHouses=[
-  
+const resaleHouses = [
+
   {
     id: "H1001",
     img: "https://i.ibb.co.com/xKQz1Wh0/house.jpg",
@@ -60,9 +34,9 @@ const resaleHouses=[
     originalPrice: 7500000, // in BDT
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Abdul Karim",
-    isActive:"false"
+    isActive: "false"
   },
   {
     id: "H1002",
@@ -72,9 +46,9 @@ const resaleHouses=[
     originalPrice: 18000000,
     yearOfUse: 6,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Nasrin Jahan",
-    isActive:true
+    isActive: true
   },
   {
     id: "H1003",
@@ -84,9 +58,9 @@ const resaleHouses=[
     originalPrice: 30000000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Fahim Rahman",
-    isActive:true
+    isActive: true
   },
   {
     id: "H1004",
@@ -96,9 +70,9 @@ const resaleHouses=[
     originalPrice: 30000000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Fahim Rahman",
-    isActive:false
+    isActive: false
   }
 
 ]
@@ -111,9 +85,9 @@ app.get('/House', (req, res) => {
 })
 
 const products = [
-  
 
-   {
+
+  {
     id: "H1001",
     img: "https://i.ibb.co.com/xKQz1Wh0/house.jpg",
     name: "Modern 2-Bedroom Apartment",
@@ -121,9 +95,9 @@ const products = [
     originalPrice: 7500000, // in BDT
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Abdul Karim",
-    isActive:true
+    isActive: true
   },
   {
     id: "H1002",
@@ -133,9 +107,9 @@ const products = [
     originalPrice: 18000000,
     yearOfUse: 6,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Nasrin Jahan",
-    isActive:true
+    isActive: true
   },
   {
     id: "H1003",
@@ -145,9 +119,9 @@ const products = [
     originalPrice: 30000000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Fahim Rahman",
-    isActive:false
+    isActive: false
   },
   {
     id: "H1004",
@@ -157,11 +131,11 @@ const products = [
     originalPrice: 30000000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Fahim Rahman",
-    isActive:true
-  }, 
-    {
+    isActive: true
+  },
+  {
     id: "B101",
     img: "https://i.ibb.co.com/dw8FCqJN/bed1.jpg",
     name: "King Size Wooden Bed",
@@ -169,9 +143,9 @@ const products = [
     originalPrice: 35000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Mehedi Hasan",
-    isActive:true
+    isActive: true
   },
   {
     id: "B102",
@@ -181,9 +155,9 @@ const products = [
     originalPrice: 25000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Sharmin Akter",
-    isActive:true
+    isActive: true
   },
   {
     id: "B103",
@@ -193,9 +167,9 @@ const products = [
     originalPrice: 15000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Rakibul Islam",
-    isActive:true
+    isActive: true
   },
   {
     id: "B104",
@@ -205,9 +179,9 @@ const products = [
     originalPrice: 50000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Nusrat Jahan",
-    isActive:true
+    isActive: true
   },
   {
     id: "B105",
@@ -217,9 +191,9 @@ const products = [
     originalPrice: 28000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Aminul Hoque",
-    isActive:true
+    isActive: true
   },
   {
     id: "B106",
@@ -229,9 +203,9 @@ const products = [
     originalPrice: 20000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Fatema Khatun",
-    isActive:true
+    isActive: true
   },
   {
     id: "B107",
@@ -241,9 +215,9 @@ const products = [
     originalPrice: 60000,
     yearOfUse: 5,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Habibur Rahman",
-    isActive:true
+    isActive: true
   },
   {
     id: "B108",
@@ -253,12 +227,12 @@ const products = [
     originalPrice: 32000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Shamima Akter",
-    isActive:true
+    isActive: true
   }
-   ,
- 
+  ,
+
   {
     id: "BS101",
     img: "https://i.ibb.co.com/JRQp97Zx/Bookshelf.jpg",
@@ -267,9 +241,9 @@ const products = [
     originalPrice: 15000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Tanvir Ahmed",
-    isActive:true
+    isActive: true
   },
   {
     id: "BS102",
@@ -279,9 +253,9 @@ const products = [
     originalPrice: 10000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Sadia Rahman",
-    isActive:true
+    isActive: true
   },
   {
     id: "BS103",
@@ -291,9 +265,9 @@ const products = [
     originalPrice: 18000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Arif Hossain",
-    isActive:false
+    isActive: false
   },
   {
     id: "BS104",
@@ -303,9 +277,9 @@ const products = [
     originalPrice: 8000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Moumita Akter",
-    isActive:false
+    isActive: false
   },
   {
     id: "BS105",
@@ -315,12 +289,12 @@ const products = [
     originalPrice: 25000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Kamrul Hasan",
-    isActive:true
+    isActive: true
   }
-,
-  
+  ,
+
   {
     id: "OC101",
     img: "https://i.ibb.co.com/5WvdVVxK/Office-Chair.jpg",
@@ -329,9 +303,9 @@ const products = [
     originalPrice: 15000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Rafiqul Islam",
-    isActive:true
+    isActive: true
   },
   {
     id: "OC102",
@@ -341,9 +315,9 @@ const products = [
     originalPrice: 22000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Farzana Haque",
-    isActive:true
+    isActive: true
   },
   {
     id: "OC103",
@@ -353,9 +327,9 @@ const products = [
     originalPrice: 12000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Mahmudul Hasan",
-    isActive:true
+    isActive: true
   },
   {
     id: "OC104",
@@ -365,12 +339,12 @@ const products = [
     originalPrice: 20000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Shamima Nasrin",
-    isActive:true
-    },
+    isActive: true
+  },
 
-  
+
   {
     id: "SF101",
     img: "https://i.ibb.co.com/v64FFH4g/sofa1.jpg",
@@ -379,9 +353,9 @@ const products = [
     originalPrice: 50000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Jannat Ara",
-    isActive:true
+    isActive: true
   },
   {
     id: "SF102",
@@ -391,21 +365,21 @@ const products = [
     originalPrice: 85000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Masud Rana",
-    isActive:true
+    isActive: true
   },
   {
-    id:"SF104",
+    id: "SF104",
     img: "https://i.ibb.co.com/Hp7BjHJ0/sofa6.jpg",
     name: "Fabric Corner Sofa",
     resalePrice: 30000,
     originalPrice: 65000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Shamima Akter",
-    isActive:false
+    isActive: false
 
   },
   {
@@ -416,9 +390,9 @@ const products = [
     originalPrice: 40000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Imran Hossain",
-    isActive:"true"
+    isActive: "true"
   },
   {
     id: "SF105",
@@ -428,9 +402,9 @@ const products = [
     originalPrice: 95000,
     yearOfUse: 5,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Farzana Akter",
-    isActive:"true"
+    isActive: "true"
   },
   {
     id: "SF106",
@@ -440,12 +414,12 @@ const products = [
     originalPrice: 30000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Tanvir Rahman",
-    isActive:"true"
+    isActive: "true"
   }
-,
- 
+  ,
+
   {
     id: "TB101",
     img: "https://i.ibb.co.com/ZphrRrdn/table1.jpg",
@@ -454,9 +428,9 @@ const products = [
     originalPrice: 25000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Rahim Uddin",
-    isActive:"true"
+    isActive: "true"
 
   },
   {
@@ -467,9 +441,9 @@ const products = [
     originalPrice: 15000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Sadia Akter",
-    isActive:"true"
+    isActive: "true"
   },
   {
     id: "TB103",
@@ -479,9 +453,9 @@ const products = [
     originalPrice: 12000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Abdul Karim",
-    isActive:"true"
+    isActive: "true"
   },
   {
     id: "TB104",
@@ -491,9 +465,9 @@ const products = [
     originalPrice: 30000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Nazmul Hasan",
-    isActive:"true"
+    isActive: "true"
   },
   {
     id: "TB105",
@@ -503,13 +477,13 @@ const products = [
     originalPrice: 8000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Shamima Nasrin",
-    isActive:"true"
+    isActive: "true"
   }
 
 
-  
+
 ];
 
 
@@ -518,8 +492,8 @@ app.get('/AllProduct', (req, res) => {
   res.send(products)
 })
 
-const table=[
-    {
+const table = [
+  {
     id: "TB101",
     img: "https://i.ibb.co.com/ZphrRrdn/table1.jpg",
     name: "Wooden Dining Table",
@@ -527,9 +501,9 @@ const table=[
     originalPrice: 25000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Rahim Uddin",
-    isActive:true
+    isActive: true
   },
   {
     id: "TB102",
@@ -539,9 +513,9 @@ const table=[
     originalPrice: 15000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Sadia Akter",
-    isActive:false
+    isActive: false
   },
   {
     id: "TB103",
@@ -551,9 +525,9 @@ const table=[
     originalPrice: 12000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Abdul Karim",
-    isActive:true
+    isActive: true
   },
   {
     id: "TB104",
@@ -563,9 +537,9 @@ const table=[
     originalPrice: 30000,
     yearOfUse: 4,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Nazmul Hasan",
-    isActive:true
+    isActive: true
   },
   {
     id: "TB105",
@@ -575,9 +549,9 @@ const table=[
     originalPrice: 8000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Shamima Nasrin",
-    isActive:true
+    isActive: true
   }
 ]
 app.get('/table', (req, res) => {
@@ -588,8 +562,8 @@ app.get('/table', (req, res) => {
 
 
 
-const bestSeller=[
-    {
+const bestSeller = [
+  {
     id: "B101",
     img: "https://ibb.co.com/VpNDj0rj",
     name: "King Size Wooden Bed",
@@ -597,11 +571,11 @@ const bestSeller=[
     originalPrice: 35000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Mehedi Hasan",
-    isActive:true
-  }, 
-   {
+    isActive: true
+  },
+  {
     id: "B101",
     img: "https://ibb.co.com/mVXZrgwg",
     name: "King Size Wooden Bed",
@@ -609,11 +583,11 @@ const bestSeller=[
     originalPrice: 35000,
     yearOfUse: 2,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Mehedi Hasan",
-    isActive:true
+    isActive: true
   },
-     {
+  {
     id: "BS104",
     img: "https://i.ibb.co.com/vxPzfvYT/bookshelf4.jpg",
     name: "Small Corner Bookshelf",
@@ -621,9 +595,9 @@ const bestSeller=[
     originalPrice: 8000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Moumita Akter",
-    isActive:true
+    isActive: true
   },
   {
     id: "BS105",
@@ -633,11 +607,11 @@ const bestSeller=[
     originalPrice: 25000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Kamrul Hasan",
-    isActive:true
+    isActive: true
   },
-   {
+  {
     id: "OC103",
     img: "https://i.ibb.co.com/h1yRm2N3/office-chair3.jpg",
     name: "Adjustable Swivel Chair",
@@ -645,11 +619,11 @@ const bestSeller=[
     originalPrice: 12000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Mahmudul Hasan",
-    isActive:true
+    isActive: true
   },
-   {
+  {
     id: "SF106",
     img: "https://i.ibb.co.com/Hp7BjHJ0/sofa6.jpg",
     name: "Compact 2-Seater Sofa",
@@ -657,11 +631,11 @@ const bestSeller=[
     originalPrice: 30000,
     yearOfUse: 1,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Tanvir Rahman",
-    isActive:true
+    isActive: true
   },
-    {
+  {
     id: "TB101",
     img: "https://i.ibb.co.com/ZphrRrdn/table1.jpg",
     name: "Wooden Dining Table",
@@ -669,9 +643,9 @@ const bestSeller=[
     originalPrice: 25000,
     yearOfUse: 3,
     postedAt: new Date().toISOString(),
-    description:" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
+    description: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis voluptates quod ipsum praesentium nemo, quidem officiis veritatis natus provident tempore obcaecati, nulla, consequatur facilis placeat vitae error ad id. Aut!",
     sellerName: "Rahim Uddin",
-    isActive:true
+    isActive: true
   },
 ]
 app.get('/BestSeller', (req, res) => {
